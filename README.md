@@ -34,7 +34,7 @@ docker run -itd -p 8080:3000 calculator
 
 应用启动后的状态如上图。
 
-test-pr3
+branch-1-> trigger test
 
 ----
 For test-update-update
