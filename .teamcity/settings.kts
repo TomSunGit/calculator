@@ -5,6 +5,7 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.perfmon
 import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
+import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -31,7 +32,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2024.12"
 
 project {
-
+    vcsRoot(CustomVcsRoot)
     buildType(Build)
 }
 
@@ -67,5 +68,17 @@ object Build : BuildType({
                 filterAuthorRole = PullRequests.GitHubRoleFilter.MEMBER
             }
         }
+    }
+})
+object CustomVcsRoot : GitVcsRoot({
+    id("test-auto-githubApp")
+    name = "githubApp-token"
+    url = "https://github.com/TomSunGit/test-auto.git"
+    branch = "refs/heads/main"
+
+    authMethod = token {
+        userName = "oauth2"
+        tokenId = "c_token_id:CID_2c5b3636664801e1f78a3949495cffc1:-1:de5e6c52-d840-4f0f-b045-f0cf062627ec" // Reference the ID from the GitHubAppConnection
+
     }
 })
