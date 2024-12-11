@@ -71,8 +71,8 @@ object Build : BuildType({
     }
 })
 object CustomVcsRoot : GitVcsRoot({
-    id("test-auto-githubApp")
-    name = "githubApp-token"
+    id("testautogithubApp")
+    name = "githubApptoken"
     url = "https://github.com/TomSunGit/test-auto.git"
     branch = "refs/heads/main"
 
