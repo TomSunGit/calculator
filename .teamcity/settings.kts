@@ -33,7 +33,7 @@ version = "2024.12"
 
 project {
     vcsRoot(CustomVcsRoot)
-    buildType(Build)
+    //buildType(Build)
 }
 
 object Build : BuildType({
