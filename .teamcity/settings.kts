@@ -71,14 +71,14 @@ object Build : BuildType({
     }
 })
 object CustomVcsRoot : GitVcsRoot({
-    id("testautogithubApp")
-    name = "githubApptoken"
-    url = "https://github.com/TomSunGit/test-auto.git"
+    id("pipelinesxcode")
+    name = "pipelines-xcode"
+    url = "https://github.com/TomSunGit/pipelines-xcode.git"
     branch = "refs/heads/main"
 
     authMethod = token {
         userName = "oauth2"
-        tokenId = "c_token_id:CID_2c5b3636664801e1f78a3949495cffc1:-1:de5e6c52-d840-4f0f-b045-f0cf062627ec" // Reference the ID from the GitHubAppConnection
+        tokenId = "tc_token_id:CID_2c5b3636664801e1f78a3949495cffc1:-1:9183fcc4-d89f-449d-847e-c88532b10888" // Reference the ID from the GitHubAppConnection
 
     }
 })
