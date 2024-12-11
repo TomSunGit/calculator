@@ -72,7 +72,7 @@ object Build : BuildType({
 })
 object CustomVcsRoot : GitVcsRoot({
     id("pipelinesxcode")
-    name = "pipelines-xcode"
+    name = "pipelinesxcode"
     url = "https://github.com/TomSunGit/pipelines-xcode.git"
     branch = "refs/heads/main"
 
