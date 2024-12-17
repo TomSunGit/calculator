@@ -22,7 +22,7 @@ changeBuildType(RelativeId("Build")) {
         update<ScriptBuildStep>(0) {
             enabled = false
             clearConditions()
-            scriptContent = "npm --version"
+            scriptContent = "echo %teamcity.serverUrl%%"
         }
         insert(1) {
             kotlinScript {
