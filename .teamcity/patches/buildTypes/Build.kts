@@ -30,18 +30,14 @@ changeBuildType(RelativeId("Build")) {
                 content = """
                     #!/usr/bin/env kotlin
                     
-                    @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
-                    @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+                    @file:Repository("https://download.jetbrains.com/teamcity-repository")
+                    @file:DependsOn("org.jetbrains.teamcity:server-api:2024.12")
                     
-                    import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*
+                    import jetbrains.buildServer.serverSide.ProjectManager
                     
-                    val addressee = args.firstOrNull() ?: "World"
-                    
-                    print(createHTML().html {
-                        body {
-                            h1 { +"Hello, ${'$'}address!" }
-                        }
-                    })
+                    fun main() {
+                        println("TeamCity ProjectManager imported successfully!")
+                    }
                 """.trimIndent()
             }
         }
