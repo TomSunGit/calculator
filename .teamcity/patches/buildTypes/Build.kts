@@ -27,7 +27,7 @@ changeBuildType(RelativeId("Build")) {
         insert(1) {
             kotlinScript {
                 id = "kotlinScript"
-                content = "import jetbrains.temcity.demo"
+                content = "import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*"
             }
         }
     }
