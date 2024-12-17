@@ -34,9 +34,6 @@ changeBuildType(RelativeId("Build")) {
                     @file:DependsOn("org.jetbrains.teamcity:server-api:2024.12")
                     
                     import jetbrains.buildServer.serverSide.ProjectManager
-                    
-                    import jetbrains.buildServer.serverSide.ProjectManager
-                    
                     fun listProjects(projectManager: ProjectManager) {
                         val projects = projectManager.projects
                         for (project in projects) {
