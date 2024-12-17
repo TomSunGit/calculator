@@ -30,7 +30,7 @@ changeBuildType(RelativeId("Build")) {
                     #!/usr/bin/env kotlin
                     
                     //@file:Repository("https://download.jetbrains.com/teamcity-repository")
-                    @file:Repository("http://%teamcity.serverUrl%:8111/repository/download/")
+                    @file:Repository("http://%teamcity.serverUrl%/repository/download/")
                     
                     @file:DependsOn("org.jetbrains.teamcity:server-api:2024.12")
                     
