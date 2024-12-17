@@ -21,7 +21,7 @@ changeBuildType(RelativeId("Build")) {
     steps {
         update<ScriptBuildStep>(0) {
             clearConditions()
-            scriptContent = "echo %teamcity.serverUrl%%"
+            scriptContent = "echo %teamcity.serverUrl%"
         }
         insert(1) {
             kotlinScript {
