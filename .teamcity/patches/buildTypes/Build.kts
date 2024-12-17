@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.kotlinScript
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -22,6 +23,12 @@ changeBuildType(RelativeId("Build")) {
             enabled = false
             clearConditions()
             scriptContent = "npm --version"
+        }
+        insert(1) {
+            kotlinScript {
+                id = "kotlinScript"
+                content = "import jetbrains.temcity.demo"
+            }
         }
     }
 }
