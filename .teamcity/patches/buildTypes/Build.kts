@@ -2,6 +2,7 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
+import jetbrains.buildServer.configs.kotlin.buildSteps.kotlinScript
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.ui.*
 
@@ -19,8 +20,30 @@ changeBuildType(RelativeId("Build")) {
     }
     steps {
         update<ScriptBuildStep>(0) {
+            enabled = false
             clearConditions()
             scriptContent = "npm --version"
+        }
+        insert(1) {
+            kotlinScript {
+                id = "kotlinScript"
+                content = """
+                    #!/usr/bin/env kotlin
+                    
+                    @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
+                    @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+                    
+                    import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*
+                    
+                    val addressee = args.firstOrNull() ?: "World"
+                    
+                    print(createHTML().html {
+                        body {
+                            h1 { +"Hello, ${'$'}address!" }
+                        }
+                    })
+                """.trimIndent()
+            }
         }
     }
 }
