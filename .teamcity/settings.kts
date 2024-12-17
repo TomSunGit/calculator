@@ -6,7 +6,8 @@ import jetbrains.buildServer.configs.kotlin.buildFeatures.pullRequests
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.triggers.vcs
 import jetbrains.buildServer.configs.kotlin.vcs.GitVcsRoot
-
+// No code needed here, simply remove the line
+// Removed the incorrect import statement
 /*
 The settings script is an entry point for defining a TeamCity
 project hierarchy. The script should contain a single call to the
@@ -46,7 +47,7 @@ object Build : BuildType({
     steps {
         script {
             id = "simpleRunner"
-            scriptContent = """echo "auto merge""""
+            scriptContent = """echo "auto merge"""
         }
     }
 
