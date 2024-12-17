@@ -27,7 +27,22 @@ changeBuildType(RelativeId("Build")) {
         insert(1) {
             kotlinScript {
                 id = "kotlinScript"
-                content = "import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*"
+                content = """
+                    #!/usr/bin/env kotlin
+                    
+                    @file:Repository("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven")
+                    @file:DependsOn("org.jetbrains.kotlinx:kotlinx-html-jvm:0.7.3")
+                    
+                    import kotlinx.html.*; import kotlinx.html.stream.*; import kotlinx.html.attributes.*
+                    
+                    val addressee = args.firstOrNull() ?: "World"
+                    
+                    print(createHTML().html {
+                        body {
+                            h1 { +"Hello, ${'$'}address!" }
+                        }
+                    })
+                """.trimIndent()
             }
         }
     }
