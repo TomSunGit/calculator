@@ -35,8 +35,13 @@ changeBuildType(RelativeId("Build")) {
                     
                     import jetbrains.buildServer.serverSide.ProjectManager
                     
-                    fun main() {
-                        println("TeamCity ProjectManager imported successfully!")
+                    import jetbrains.buildServer.serverSide.ProjectManager
+                    
+                    fun listProjects(projectManager: ProjectManager) {
+                        val projects = projectManager.projects
+                        for (project in projects) {
+                            println("Project: ${'$'}{project.name} (ID: ${'$'}{project.projectId})")
+                        }
                     }
                 """.trimIndent()
             }
