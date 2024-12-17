@@ -19,6 +19,7 @@ changeBuildType(RelativeId("Build")) {
     }
     steps {
         update<ScriptBuildStep>(0) {
+            enabled = false
             clearConditions()
             scriptContent = "npm --version"
         }
