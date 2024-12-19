@@ -26,6 +26,7 @@ changeBuildType(RelativeId("Build")) {
         insert(1) {
             kotlinScript {
                 id = "kotlinScript"
+                enabled = false
                 content = """
                     #!/usr/bin/env kotlin
                     
