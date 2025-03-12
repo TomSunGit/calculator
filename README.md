@@ -1,10 +1,10 @@
 # Calculator.js: node.js 演示项目
 
--test - PR3
 [![Build Status](https://dev.azure.com/guiguan/CalcDemo/_apis/build/status/CalcDemo-CI-var)](https://dev.azure.com/guiguan/CalcDemo/_build/latest?definitionId=14)
 
 本应用使用node.js创建，并包含了试用mocha的单元测试代码。本应用的运行状态为网页中的计算器，如下图：
 
+-test - PR4
 ![](calculator-ui.png)
 
 代码中使用node.js代码提供了REST APIs，其中提供各种数学计算功能单元。
